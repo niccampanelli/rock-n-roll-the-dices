@@ -1,4 +1,5 @@
-import { createBrowserRouter, NavigationStates, BrowserRouter, Navigate } from "react-router";
+import { createBrowserRouter, Navigate } from "react-router";
+import Inicio from ".";
 
 const routes = createBrowserRouter([
     {
@@ -8,7 +9,8 @@ const routes = createBrowserRouter([
         path: "/cadastro"
     },
     {
-        path: "/"
+        path: "/",
+        Component: Inicio
     },
     {
         path: "/sessao",
@@ -18,7 +20,7 @@ const routes = createBrowserRouter([
                 children: [
                     {
                         path: "/sessao/:id/ficha",
-                        element: <Navigate to="" />,
+                        element: <Navigate to="/sessao/:id/ficha/:idFicha" />,
                         children: [
                             {
                                 path: "/sessao/:id/ficha/:idFicha"
@@ -28,8 +30,10 @@ const routes = createBrowserRouter([
                 ]
             },
             {
-                path: "/criar"
+                path: "/sessao/criar"
             }
         ]
     }
 ]);
+
+export default routes;
