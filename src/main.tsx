@@ -1,6 +1,7 @@
-import { createRoot } from 'react-dom/client';
-import './index.css';
-import App from './app';
 import "@fontsource/germania-one";
+import "@fontsource/oregano";
+import { createRoot } from 'react-dom/client';
+import App from './app';
+import './index.css';
 
 createRoot(document.getElementById('root')!).render(<App />)

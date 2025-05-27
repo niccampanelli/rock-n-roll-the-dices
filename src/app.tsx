@@ -1,4 +1,4 @@
-import { ThemeProvider } from "@mui/material";
+import { CssBaseline, ThemeProvider } from "@mui/material";
 import moment from "moment";
 import routes from "pages/routes";
 import { RouterProvider } from "react-router";
@@ -10,6 +10,7 @@ export default function App() {
 
     return (
         <ThemeProvider theme={theme}>
+            <CssBaseline />
             <RouterProvider router={routes} />
         </ThemeProvider>
     )
