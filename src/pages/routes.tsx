@@ -1,12 +1,23 @@
 import { createBrowserRouter, Navigate } from "react-router";
 import Inicio from ".";
+import Login from "./auth/login";
+import Auth from "./auth";
+import Cadastro from "./auth/cadastro";
 
 const routes = createBrowserRouter([
     {
-        path: "/login"
-    },
-    {
-        path: "/cadastro"
+        path: "/auth",
+        Component: Auth,
+        children: [
+            {
+                path: "/auth/login",
+                Component: Login
+            },
+            {
+                path: "/auth/cadastro",
+                Component: Cadastro
+            },
+        ]
     },
     {
         path: "/",

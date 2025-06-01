@@ -1,4 +1,4 @@
-import { CssBaseline, ThemeProvider } from "@mui/material";
+import { CssBaseline, GlobalStyles, StyledEngineProvider, ThemeProvider } from "@mui/material";
 import moment from "moment";
 import routes from "pages/routes";
 import { RouterProvider } from "react-router";
@@ -9,9 +9,12 @@ export default function App() {
     moment.locale('pt-br');
 
     return (
-        <ThemeProvider theme={theme}>
-            <CssBaseline />
-            <RouterProvider router={routes} />
-        </ThemeProvider>
+        <StyledEngineProvider enableCssLayer>
+            <ThemeProvider theme={theme}>
+                <GlobalStyles styles="@layer theme, base, mui, components;" />
+                <CssBaseline />
+                <RouterProvider router={routes} />
+            </ThemeProvider>
+        </StyledEngineProvider>
     )
 }
