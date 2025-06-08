@@ -35,12 +35,9 @@ export default function Sessao() {
             <Box className="flex flex-col md:flex-row gap-4">
                 <Box className="w-full md:w-1/4">
                     <Box
-                        className="w-full aspect-square object-cover rounded-lg mb-4"
-                        sx={{
-                            objectPosition: "50% 20%",
-                        }}
+                        className="w-full aspect-square object-cover object-center rounded-lg mb-4"
                         component={"img"}
-                        src="/img/pages/login/banner.png"
+                        src="/img/pages/sessao/banner.png"
                     />
                     <Box className="flex flex-col gap-2">
                         <Typography variant="subtitulo">
@@ -48,6 +45,7 @@ export default function Sessao() {
                         </Typography>
                         <TextField
                             variant="filled"
+                            disabled={trancada}
                             fullWidth
                             multiline
                             rows={4}
