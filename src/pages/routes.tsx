@@ -1,47 +1,71 @@
-import { createBrowserRouter, Navigate } from "react-router";
+import { createBrowserRouter, Navigate, redirect, useParams } from "react-router";
 import Inicio from ".";
 import Login from "./auth/login";
 import Auth from "./auth";
 import Cadastro from "./auth/cadastro";
+import Sessao from "./sessao";
+import DefaultLayout from "components/layout/DefaultLayout";
+import Ficha from "./sessao/ficha";
 
 const routes = createBrowserRouter([
     {
-        path: "/auth",
+        path: "auth",
         Component: Auth,
         children: [
             {
-                path: "/auth/login",
+                index: true,
+                element: <Navigate to="/auth/login" replace />
+            },
+            {
+                path: "login",
                 Component: Login
             },
             {
-                path: "/auth/cadastro",
+                path: "cadastro",
                 Component: Cadastro
             },
         ]
     },
     {
-        path: "/",
-        Component: Inicio
-    },
-    {
-        path: "/sessao",
+        Component: DefaultLayout,
         children: [
             {
-                path: "/sessao/:id",
+                path: "",
+                Component: Inicio
+            },
+            {
+                path: "sessao",
                 children: [
                     {
-                        path: "/sessao/:id/ficha",
-                        element: <Navigate to="/sessao/:id/ficha/:idFicha" />,
+                        index: true,
+                        element: <Navigate to="/" replace />
+                    },
+                    {
+                        path: ":idSessao",
                         children: [
                             {
-                                path: "/sessao/:id/ficha/:idFicha"
+                                index: true,
+                                Component: Sessao
+                            },
+                            {
+                                path: "ficha",
+                                children: [
+                                    {
+                                        index: true,
+                                        loader: ({ params }) => {
+                                            const { idSessao } = params;
+                                            return redirect(`/sessao/${idSessao}`);
+                                        }
+                                    },
+                                    {
+                                        path: ":idFicha",
+                                        Component: Ficha
+                                    }
+                                ]
                             }
                         ]
                     }
                 ]
-            },
-            {
-                path: "/sessao/criar"
             }
         ]
     }

@@ -116,6 +116,7 @@ const theme = createTheme({
             },
             styleOverrides: {
                 root: ({ theme }) => ({
+                    padding: "0",
                     borderRadius: theme.shape.borderRadius,
                     backgroundColor: theme.palette.text.primary,
                     "&:hover": {
@@ -130,6 +131,7 @@ const theme = createTheme({
                     color: theme.palette.background.default,
                     fontFamily: theme.typography.paragrafo.fontFamily,
                     fontSize: theme.typography.paragrafo.fontSize,
+                    lineHeight: 1.5,
                     "&::placeholder": {
                         color: theme.palette.background.default,
                     }

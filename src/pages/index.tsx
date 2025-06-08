@@ -1,4 +1,4 @@
-import { Autocomplete, Button, Card, Chip, TextField, Typography } from "@mui/material";
+import { Card, Chip, Typography } from "@mui/material";
 
 export default function Inicio() {
 
