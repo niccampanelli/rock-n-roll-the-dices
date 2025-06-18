@@ -36,6 +36,8 @@ export default function Login() {
                 className="mb-4"
                 variant="contained"
                 color="primary"
+                component={Link}
+                to="/"
             >
                 Entrar
             </Button>

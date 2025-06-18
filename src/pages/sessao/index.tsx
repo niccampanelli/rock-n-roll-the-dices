@@ -1,4 +1,5 @@
 import { Box, Button, IconButton, TextField, Typography } from "@mui/material";
+import CardJogador from "components/cardJogador";
 import Icon from "components/icon";
 import { useState } from "react";
 import { Link, useParams } from "react-router";
@@ -7,6 +8,7 @@ export default function Sessao() {
 
     const { idSessao } = useParams();
     const [trancada, setTrancada] = useState(false);
+    const [história, setHistória] = useState("Astros do rock embarcam em uma missão para recuperar a lendária Gema da Harmonia, enfrentando criaturas mitológicas e desvendando segredos ancestrais em uma história digna de uma balada imortal!");
 
     return (
         <Box className="w-full flex flex-col gap-2">
@@ -48,15 +50,44 @@ export default function Sessao() {
                             disabled={trancada}
                             fullWidth
                             multiline
-                            rows={4}
+                            rows={6}
                             placeholder="Descreva a história da sessão..."
+                            value={história}
+                            onChange={(e) => setHistória(e.target.value)}
                         />
                     </Box>
                 </Box>
-                <Box className="w-full md:w-3/4">
-                    <Typography variant="subtitulo">
-                        Detalhes da sessão {idSessao}
-                    </Typography>
+                <Box className="flex flex-col md:inline wrap-normal gap-4 w-full md:w-3/4">
+                    <CardJogador
+                        nome="ROD"
+                        avatar="/img/pages/sessao/snake.png"
+                        personagem="Snake"
+                        classe="guerreiro"
+                        vidas={8}
+                        vidasTotal={20}
+                        experiencia={13578}
+                        pontos={125}
+                    />
+                    <CardJogador
+                        nome="Maria"
+                        avatar="/img/pages/sessao/blaze.png"
+                        personagem="Oz de Ousborne"
+                        classe="guerreiro"
+                        vidas={15}
+                        vidasTotal={20}
+                        experiencia={10234}
+                        pontos={200}
+                    />
+                    <CardJogador
+                        nome="Maria"
+                        avatar="/img/pages/sessao/blaze.png"
+                        personagem="Blaze of Glory"
+                        classe="guerreiro"
+                        vidas={15}
+                        vidasTotal={20}
+                        experiencia={10234}
+                        pontos={200}
+                    />
                 </Box>
             </Box>
         </Box>

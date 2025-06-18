@@ -42,6 +42,8 @@ export default function Cadastro() {
                 className="mb-4"
                 variant="contained"
                 color="primary"
+                component={Link}
+                to="/"
             >
                 Cadastrar
             </Button>

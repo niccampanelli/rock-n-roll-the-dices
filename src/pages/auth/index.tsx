@@ -8,9 +8,13 @@ export default function Auth() {
             <Box className="flex h-full flex-col-reverse md:flex-row">
                 <Box className="h-2/3 w-full md:h-full md:w-2/5 overflow-y-auto">
                     <Box className="flex flex-col justify-between min-h-full py-8 px-10">
-                        <Typography variant="subtitulo">
-                            Rock n' Roll The Dices
-                        </Typography>
+                        <img
+                            className="self-center mb-4"
+                            alt="Logo"
+                            src="/img/logo.png"
+                            width={150}
+                            height={150}
+                        />
                         <Outlet />
                     </Box>
                 </Box>
