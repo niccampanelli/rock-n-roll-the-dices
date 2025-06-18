@@ -63,7 +63,15 @@ const routes = createBrowserRouter([
                                     },
                                     {
                                         path: ":idFicha",
-                                        Component: Ficha
+                                        Component: Ficha,
+                                        loader: ({ params }) => {
+                                            const { idSessao, idFicha } = params;
+                                            const ficha = fichas.find(f => f.id === Number(idFicha));
+                                            if (!ficha) {
+                                                throw new Response("Ficha não encontrada", { status: 404 });
+                                            }
+                                            return { ficha };
+                                        }
                                     }
                                 ]
                             }

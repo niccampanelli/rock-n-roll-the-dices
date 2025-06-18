@@ -63,10 +63,10 @@ export default function Sessao() {
                         container
                         spacing={2}
                     >
-                        {fichas.map((ficha) => (
+                        {fichas.map((ficha: any) => (
                             <Grid
                                 key={ficha.id}
-                                size={{ xs: 12, sm: 6 }}
+                                size={{ xs: 12, md: 6 }}
                             >
                                 <CardJogador
                                     nome={ficha.nome}
@@ -77,6 +77,7 @@ export default function Sessao() {
                                     vidasTotal={ficha.vidasTotal}
                                     experiencia={ficha.experiencia}
                                     pontos={ficha.pontos}
+                                    link={`/sessao/${idSessao}/ficha/${ficha.id}`}
                                 />
                             </Grid>
                         ))}

@@ -1,5 +1,5 @@
 export interface FichaDto {
-    id: string;
+    id: number;
     nome: string;
     avatar: string;
     personagem: string;

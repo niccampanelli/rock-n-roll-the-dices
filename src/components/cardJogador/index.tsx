@@ -1,5 +1,6 @@
 import { Card, CardMedia, CardContent, CardActionArea, Box, Chip, Typography, Button } from "@mui/material";
 import Icon from "components/icon";
+import { Link } from "react-router";
 import { ClassesCores, type CardJogadorProps } from "typesrc/components/cardJogador";
 import { FichaClasseLabels } from "typesrc/dtos/ficha/ficha.dto";
 
@@ -11,17 +12,21 @@ export default function CardJogador({
     vidas,
     vidasTotal,
     experiencia,
-    pontos
+    pontos,
+    link
 }: CardJogadorProps) {
 
     return (
         <Card
             className="w-full flex flex-row rounded-lg"
-            bgcolor={(theme) => theme.palette.background.paper}
         >
-            <CardActionArea className="flex">
+            <CardActionArea
+                className="flex justify-start"
+                component={link ? Link : "div"}
+                to={link}
+            >
                 <CardMedia
-                    height={50}
+                    className="w-32 h-auto"
                     component="img"
                     image={avatar}
                     alt={personagem}

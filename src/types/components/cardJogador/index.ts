@@ -10,6 +10,7 @@ export interface CardJogadorProps {
     vidasTotal: number;
     experiencia: number;
     pontos: number;
+    link?: string;
 }
 
 export const ClassesCores: Record<FichaClasse, ChipProps["color"]> = {
