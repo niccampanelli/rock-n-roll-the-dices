@@ -6,6 +6,7 @@ import Cadastro from "./auth/cadastro";
 import Sessao from "./sessao";
 import DefaultLayout from "components/layout/DefaultLayout";
 import Ficha from "./sessao/ficha";
+import { fichas } from "./dados";
 
 const routes = createBrowserRouter([
     {
@@ -45,7 +46,10 @@ const routes = createBrowserRouter([
                         children: [
                             {
                                 index: true,
-                                Component: Sessao
+                                Component: Sessao,
+                                loader: () => {
+                                    return { fichas };
+                                }
                             },
                             {
                                 path: "ficha",

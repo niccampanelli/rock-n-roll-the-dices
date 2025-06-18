@@ -1,22 +1,21 @@
 import type { ChipProps } from "@mui/material";
+import { FichaClasse } from "../../dtos/ficha/ficha.dto";
 
 export interface CardJogadorProps {
     nome: string;
     avatar: string;
     personagem: string;
-    classe: CardJogadorClasses;
+    classe: FichaClasse;
     vidas: number;
     vidasTotal: number;
     experiencia: number;
     pontos: number;
 }
 
-export type CardJogadorClasses = "guerreiro" | "mago" | "arqueiro" | "paladino" | "bardo";
-
-export const ClassesCores: Record<CardJogadorClasses, ChipProps["color"]> = {
-    guerreiro: "secondary",
-    mago: "purple",
-    arqueiro: "primary",
-    paladino: "gold",
-    bardo: "red"
+export const ClassesCores: Record<FichaClasse, ChipProps["color"]> = {
+    [FichaClasse.guerreiro]: "secondary",
+    [FichaClasse.mago]: "purple",
+    [FichaClasse.arqueiro]: "primary",
+    [FichaClasse.paladino]: "gold",
+    [FichaClasse.bardo]: "red"
 }
